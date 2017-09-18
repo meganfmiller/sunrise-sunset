@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   getSunrise() {
-    console.log(this.state.latitude,this.state.longitude)
+    console.log(this.state.latitude, this.state.longitude)
     let baseUrl = `https://api.sunrise-sunset.org/json?lat=${this.state.latitude}&lng=${this.state.longitude}`;
     axios.get(baseUrl).then(response => {
       this.setState({
@@ -54,29 +54,31 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <div className='titles'>
           <h1>Latitude</h1>
           <h1>Longitude</h1>
         </div>
         <div className='input_half'>
-          <Latitude updateLat={this.updateLat}/>
-          <Longitude updateLng={this.updateLng}/>
+          <Latitude updateLat={this.updateLat} />
+          <Longitude updateLng={this.updateLng} />
         </div>
         <div className='button_part'>
-          <Button 
-          lat={this.state.latitude}
-          lng={this.state.longitude}
-          getSunrise={this.getSunrise}/>
-
+          <Button
+            lat={this.state.latitude}
+            lng={this.state.longitude}
+            getSunrise={this.getSunrise} />
         </div>
         <div className='titles2'>
           <h1>Sunrise</h1>
           <h1>Sunset</h1>
         </div>
         <div className='display_half'>
-          <Sunrise sunrise={this.state.sunrise}/>
-          <Sunset sunset={this.state.sunset}/>
+          <Sunrise sunrise={this.state.sunrise} />
+          <Sunset sunset={this.state.sunset} />
         </div>
+        <div className='container'></div>
+        <div className='container2'></div>
       </div>
     );
   }

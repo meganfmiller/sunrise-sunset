@@ -1,12 +1,36 @@
 .App {
-  position: relative;
+  position: relative;  
+  /* background-image: linear-gradient(0deg,#060405 0%, #863C1F 25%, #FBA55A 50%, #D0605E 75%, #735668 100%); */
+  /* animation-name: example;
+  animation-duration: 8s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite; */
+  height: 100vh;
+  width: 100%;
+  font-family: montserrat;
+}
+
+.container {
+  position: absolute;
+  top:0;
   background-image: linear-gradient(0deg,#1C3B50 0%, #006792 25%, #8A92A5 50%, #FFE3A4 75%, #F5A580 100%);
   animation-name: example;
   animation-duration: 8s;
   animation-delay: 2s;
   animation-iteration-count: infinite;
   height: 100vh;
-  font-family: montserrat;
+  width: 100%;
+  z-index: -1;
+}
+
+.container2 {
+  position: absolute;
+  top:0;
+  background-image: linear-gradient(0deg,#060405 0%, #863C1F 25%, #FBA55A 50%, #D0605E 75%, #735668 100%);
+  opacity: .9;
+  height: 100vh;
+  width: 100%;
+  z-index: -2;
 }
 
 h1 {
@@ -45,12 +69,41 @@ button {
   font-size: 20px;
   font-weight: bold;
   background: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 20px gray;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .display_half {
   display: flex;
   justify-content: space-around;
-  
 }
 
 .titles2 {
@@ -58,7 +111,7 @@ button {
   justify-content: space-around;
   margin: 0 -30px;
   padding-top: 70px;
-  color: white
+  color: white;
 }
 
 .time_display {
@@ -72,10 +125,17 @@ button {
 .time {
   color: white;
   font-size: 80px;
+  letter-spacing: 4px;
 }
 
-@keyframes example {
+/* @keyframes example {
   0% {background-image: linear-gradient(0deg,#1C3B50 0%, #006792 25%, #8A92A5 50%, #FFE3A4 75%, #F5A580 100%);}
   50% {background-image: linear-gradient(0deg,#060405 0%, #863C1F 25%, #FBA55A 50%, #D0605E 75%, #735668 100%);}
   100% {background-image: linear-gradient(0deg,#1C3B50 0%, #006792 25%, #8A92A5 50%, #FFE3A4 75%, #F5A580 100%);}
+} */
+
+@keyframes example {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
 }
